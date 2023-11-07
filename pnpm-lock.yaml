@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@types/dom-view-transitions':
+    specifier: ^1.0.4
+    version: 1.0.4
   vitepress:
     specifier: 1.0.0-rc.25
     version: 1.0.0-rc.25(@algolia/client-search@4.20.0)(search-insights@2.9.0)
@@ -418,6 +421,10 @@ packages:
 
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
+    dev: true
+
+  /@types/dom-view-transitions@1.0.4:
+    resolution: {integrity: sha512-oDuagM6G+xPLrLU4KeCKlr1oalMF5mJqV5pDPMDVIEaa8AkUW00i6u+5P02XCjdEEUQJC9dpnxqSLsZeAciSLQ==}
     dev: true
 
   /@types/linkify-it@3.0.4:

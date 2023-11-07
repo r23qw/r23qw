@@ -5,6 +5,7 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
+    "@types/dom-view-transitions": "^1.0.4",
     "vitepress": "1.0.0-rc.25",
     "vue": "^3.3.8"
   }
