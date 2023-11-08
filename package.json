@@ -5,8 +5,17 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@types/dom-view-transitions": "^1.0.4",
+    "@unocss/transformer-directives": "^0.57.2",
+    "unocss": "^0.57.2",
     "vitepress": "1.0.0-rc.25",
     "vue": "^3.3.8"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.5.0",
+    "echarts": "^5.4.3",
+    "echarts-liquidfill": "^3.1.0",
+    "jinrishici": "^1.0.6"
   }
 }

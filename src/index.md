@@ -1,10 +1,10 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: page
-sidebar: false
+layout: rock-home
 aside: false
-outline: false
+sidebar: false
+navbar: false
+pageClass: rock-home-page
+search: false
 ---
-
-
 
