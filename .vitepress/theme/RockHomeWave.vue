@@ -6,12 +6,25 @@
 import { computed, onMounted, ref, watch } from 'vue';
 import { useEventListener } from '@vueuse/core'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
-
+import * as jinrishici from 'jinrishici'
 import * as echarts from 'echarts/core';
 import 'echarts-liquidfill'
 import * as Renderer from 'echarts/renderers'
 
-import * as jinrishici from 'jinrishici'
+const props = defineProps({
+  fontColor: {
+    type: String,
+    default: 'var(--rock-home-text)'
+  },
+  waveColor: {
+    type: Array,
+    default: () => ['#263238', '#37474F', '#455A64', '#546E7A']
+  },
+  backgroundColor: {
+    type: String,
+    default: '#CFD8DC'
+  }
+})
 
 echarts.use([Renderer.SVGRenderer])
 
@@ -52,6 +65,7 @@ const amplitudeMap = {
   xxl: 60
 }
 
+
 const chartOption = computed(() => {
   return {
     series: [{
@@ -59,9 +73,9 @@ const chartOption = computed(() => {
       amplitude: amplitudeMap[currentBreakpoint.value],
       silent: true,
       data: [0.35, 0.30, 0.25, 0.2],
-      color: ['#263238', '#37474F', '#455A64', '#546E7A'],
+      color: props.waveColor,
       shape: 'container',
-      animationDuration: 6000,
+      animationDuration: 8000,
       outline: {
         show: false
       },
@@ -70,10 +84,13 @@ const chartOption = computed(() => {
         formatter: `${sentence.value}`,
         textStyle: {
           fontSize: fontSizeMap[currentBreakpoint.value],
-          color: 'var(--rock-home-text-color)',
+          color: props.fontColor,
           fontWeight: 300
         }
       },
+      backgroundStyle: {
+        color: props.backgroundColor
+      }
     }],
   }
 })

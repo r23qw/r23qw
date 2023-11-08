@@ -151,5 +151,6 @@
   display: none;
 }
 :root {
-  --rock-home-text-color: #607d8b;
+  --rock-home-text: #607d8b;
+  --rock-home-dark-text: var(--vp-c-gray-1);
 }
