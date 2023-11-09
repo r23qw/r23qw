@@ -25,7 +25,6 @@
     "echarts-liquidfill": "^3.1.0",
     "jinrishici": "^1.0.6",
     "nprogress": "^0.2.0",
-    "vconsole": "^3.15.1",
     "viewerjs": "^1.11.6"
   }
 }

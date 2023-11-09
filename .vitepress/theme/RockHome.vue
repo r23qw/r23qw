@@ -20,7 +20,7 @@ const colorScheme = usePreferredColorScheme()
 const localStorageColorScheme = useLocalStorage('vitepress-theme-appearance', 'auto')
 const isDarkScheme = computed(() => localStorageColorScheme.value === "light" ? false : colorScheme.value === 'dark')
 
-const fontColor = computed(() => `var(--rock-home-${isDarkScheme.value ? 'dark-' : ""}text)`)
+const fontColor = computed(() => isDarkScheme.value ? '#515c67' : "#607d8b")
 const backgroundColor = computed(() => isDarkScheme.value ? '#c5c5c5' : '#CFD8DC')
 const waveColor = computed(() => isDarkScheme.value
   ? ["#212121", "#424242", "#616161", "#757575"]

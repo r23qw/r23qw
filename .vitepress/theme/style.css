@@ -152,7 +152,7 @@
 }
 :root {
   --rock-home-text: #607d8b;
-  --rock-home-dark-text: var(--vp-c-gray-1);
+  --rock-home-dark-text: #515c67;
 }
 
 /* nprogress */
