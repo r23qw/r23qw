@@ -37,12 +37,13 @@ jobs:
           node-version: '18.x'
       - name: install pnpm
         run: npm i pnpm -g 
+      - name: install pnpm
+        run: pnpm i 
       - name: build
         run: pnpm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload entire repository
           path: '.vitepress/dist'
       - name: Deploy to GitHub Pages
         id: deployment
