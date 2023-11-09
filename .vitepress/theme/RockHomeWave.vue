@@ -117,7 +117,7 @@ onMounted(() => {
   initChart()
   useEventListener('resize', useDebounceFn(() => {
     chart.value?.resize()
-  }, 1000))
+  }, 300))
 })
 
 </script>
