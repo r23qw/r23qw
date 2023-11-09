@@ -10,6 +10,7 @@ export default defineConfig({
   lang: "zh-CN",
   rewrites: {},
   themeConfig: {
+    logo: "/logo.svg",
     nav: [
       { text: "Home", link: "/" },
       { text: "Posts", link: "/posts" },

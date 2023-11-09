@@ -169,7 +169,7 @@
 }
 
 #nprogress .bar {
-  background: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-3);
   width: 100%;
   height: 2px;
 }
@@ -210,7 +210,7 @@
   border-top: transparent !important;
 }
 /* image */
-img {
+.VPDoc img {
   cursor: zoom-in;
 }
 /* slide in */

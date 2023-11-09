@@ -1,11 +1,11 @@
 
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center pt-4">
     <div class="flex-grow max-w-784px">
       <div v-if="posts.length === 0" class="flex pt-24 justify-center">Nothing Here.</div>
       <div v-else v-for="post in posts" :key="post.url">
         <div class="flex flex-col p-6 post md:flex-row">
-          <p class="flex font-medium text-base pt-1 pr-8 pb-4 text-[var(--vp-c-text-3)] leading-6 items-start ">
+          <p class="flex font-medium text-base pt-1 pr-8 pb-4 text-[var(--vp-c-text-2)] leading-6 items-start ">
             {{ new Date(post.frontmatter.date).toLocaleDateString() }}
           </p>
           <div>
@@ -28,7 +28,9 @@
 <script setup lang="ts">
 //@ts-ignore
 import { data as posts } from './post.data'
+import { useProgress } from './composables/useProgress'
 
+useProgress()
 </script>
 
 <style scoped>
