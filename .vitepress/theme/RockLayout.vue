@@ -4,9 +4,9 @@
 import { useData, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme-without-fonts'
 import { nextTick, provide } from 'vue'
-import {
-  startViewTransition,
-} from 'vue-view-transitions'
+import NProgress from 'nprogress'
+
+NProgress.configure({ showSpinner: false });
 
 const router = useRouter()
 const { isDark } = useData()
@@ -16,11 +16,11 @@ const enableTransitions = () =>
   'startViewTransition' in document &&
   window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 
-if (enableTransitions()) {
-  router.onBeforeRouteChange = async () => {
-    const viewTransition = startViewTransition();
-    await viewTransition.captured
-  };
+router.onBeforeRouteChange = async () => {
+  NProgress.start()
+};
+router.onAfterRouteChanged = async () => {
+  NProgress.done()
 }
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {

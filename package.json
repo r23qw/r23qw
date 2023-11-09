@@ -23,6 +23,7 @@
     "echarts": "^5.4.3",
     "echarts-liquidfill": "^3.1.0",
     "jinrishici": "^1.0.6",
+    "nprogress": "^0.2.0",
     "vue-view-transitions": "^1.2.0"
   }
 }
