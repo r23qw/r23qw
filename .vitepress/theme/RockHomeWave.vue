@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
-import { useEventListener } from '@vueuse/core'
+import { useEventListener, useDebounceFn } from '@vueuse/core'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import * as jinrishici from 'jinrishici'
 import * as echarts from 'echarts/core';
@@ -109,17 +109,15 @@ function initChart() {
 }
 
 watch(chartOption, () => {
-  console.log('chartOptionChange', chartOption.value)
   chart.value?.setOption(chartOption.value);
 })
 
 
 onMounted(() => {
   initChart()
-  useEventListener('resize', () => {
-    console.log('resize', chartOption.value)
+  useEventListener('resize', useDebounceFn(() => {
     chart.value?.resize()
-  })
+  }, 1000))
 })
 
 </script>
