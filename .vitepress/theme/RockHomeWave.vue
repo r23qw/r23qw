@@ -10,7 +10,7 @@ import * as jinrishici from 'jinrishici'
 import * as echarts from 'echarts/core';
 import 'echarts-liquidfill'
 import * as Renderer from 'echarts/renderers'
-import vConsole from 'vconsole'
+
 
 const props = defineProps({
   fontColor: {
@@ -115,7 +115,9 @@ watch(chartOption, () => {
 
 
 onMounted(() => {
-  new vConsole()
+  import('vconsole').then(vConsole => {
+    new vConsole.default
+  })
   initChart()
   useEventListener('resize', () => {
     console.log('resize', chartOption.value)
