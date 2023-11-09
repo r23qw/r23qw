@@ -1,78 +1,24 @@
-<!-- .vitepress/theme/Layout.vue -->
-
 <script setup lang="ts">
-import { useData, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme-without-fonts'
-import { nextTick, onMounted, provide } from 'vue'
-import NProgress from 'nprogress'
-import 'viewerjs/dist/viewer.css';
-import Viewer from 'viewerjs';
+import PostHeader from './components/PostHeader.vue'
+import PostFooter from './components/PostFooter.vue'
+import { useProgress } from './composables/useProgress'
+import { useColorSchemeTransition } from './composables/useColorSchemeTransition'
+import { useImageViewer } from './composables/useImageViewer'
 
-NProgress.configure({ showSpinner: false });
+useProgress()
+useColorSchemeTransition()
+useImageViewer()
 
-const router = useRouter()
-const { isDark, frontmatter } = useData()
-
-
-const enableTransitions = () =>
-  'startViewTransition' in document &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-
-router.onBeforeRouteChange = async () => {
-  NProgress.start()
-};
-router.onAfterRouteChanged = async () => {
-  NProgress.done()
-}
-
-provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
-  if (!enableTransitions()) {
-    isDark.value = !isDark.value
-    return
-  }
-
-  const clipPath = [
-    `circle(0px at ${x}px ${y}px)`,
-    `circle(${Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )}px at ${x}px ${y}px)`
-  ]
-
-  await document.startViewTransition(async () => {
-    isDark.value = !isDark.value
-    await nextTick()
-  }).ready
-
-  document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
-    {
-      duration: 300,
-      easing: 'ease-in',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
-    }
-  )
-})
-
-onMounted(() => {
-  new Viewer(document.body, {
-    transition: false,
-    navbar: false,
-    toolbar: false
-  })
-})
 </script>
 
 <template>
   <DefaultTheme.Layout>
     <template #doc-before>
-      <h3 class="font-bold tracking-tight text-3xl text-[var(--vp-c-text-1)] leading-8">{{ frontmatter.title }}</h3>
-      <p v-if="frontmatter.date" class="pt-4 text-[var(--vp-c-text-3)] leading-6">
-        {{ new Date(frontmatter.date).toLocaleDateString() }}
-      </p>
+      <PostHeader />
     </template>
     <template #doc-footer-before>
-      <a class="text-xl transition  text-[var(--vp-c-brand-2)] hover:text-[var(--vp-c-brand-1)]" href="/posts"> cd ..</a>
+      <PostFooter />
     </template>
   </DefaultTheme.Layout>
 </template>
