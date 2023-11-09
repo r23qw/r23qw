@@ -23,6 +23,9 @@ dependencies:
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
+  viewerjs:
+    specifier: ^1.11.6
+    version: 1.11.6
 
 devDependencies:
   '@rollup/plugin-commonjs':
@@ -1951,6 +1954,10 @@ packages:
       - rollup
       - supports-color
     dev: true
+
+  /viewerjs@1.11.6:
+    resolution: {integrity: sha512-TlhdSp2oEOLFXvEp4psKaeTjR5zBjTRcM/sHUN8PkV1UWuY8HKC8n7GaVdW5Xqnwdr/F1OmzLik1QwDjI4w/nw==}
+    dev: false
 
   /vite@4.5.0(sass@1.69.5):
     resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}

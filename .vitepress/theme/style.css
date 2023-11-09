@@ -201,3 +201,8 @@
 .VPNavBar {
   border-bottom: transparent !important;
 }
+
+/* image */
+img {
+  cursor: zoom-in;
+}

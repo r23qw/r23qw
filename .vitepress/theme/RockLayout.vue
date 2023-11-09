@@ -3,8 +3,10 @@
 <script setup lang="ts">
 import { useData, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme-without-fonts'
-import { nextTick, provide } from 'vue'
+import { nextTick, onMounted, provide } from 'vue'
 import NProgress from 'nprogress'
+import 'viewerjs/dist/viewer.css';
+import Viewer from 'viewerjs';
 
 NProgress.configure({ showSpinner: false });
 
@@ -51,6 +53,14 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     }
   )
 })
+
+onMounted(() => {
+  new Viewer(document.body, {
+    transition: false,
+    navbar: false,
+    toolbar: false
+  })
+})
 </script>
 
 <template>
@@ -60,6 +70,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       <p v-if="frontmatter.date" class="pt-4 text-[var(--vp-c-text-3)] leading-6">
         {{ new Date(frontmatter.date).toLocaleDateString() }}
       </p>
+    </template>
+    <template #doc-footer-before>
+      <a class="text-xl transition  text-[var(--vp-c-brand-2)] hover:text-[var(--vp-c-brand-1)]" href="/posts"> cd ..</a>
     </template>
   </DefaultTheme.Layout>
 </template>
