@@ -49,10 +49,10 @@
   --vp-c-default-3: var(--vp-c-gray-3);
   --vp-c-default-soft: var(--vp-c-gray-soft);
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
-  --vp-c-brand-2: var(--vp-c-indigo-2);
-  --vp-c-brand-3: var(--vp-c-indigo-3);
-  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+  --vp-c-brand-1: var(--vp-c-green-1);
+  --vp-c-brand-2: var(--vp-c-green-2);
+  --vp-c-brand-3: var(--vp-c-green-3);
+  --vp-c-brand-soft: var(--vp-c-green-soft);
 
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);
@@ -160,16 +160,16 @@
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
-}
-
-#nprogress .bar {
-  background: var(--vp-c-brand-1);
-
   position: fixed;
   z-index: 1031;
   top: 0;
   left: 0;
+  height: 2px;
+  width: 100%;
+}
 
+#nprogress .bar {
+  background: var(--vp-c-brand-1);
   width: 100%;
   height: 2px;
 }
@@ -181,10 +181,23 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  box-shadow: 0 0 10px #29d, 0 0 5px var(--vp-c-brand-1);
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* nav */
+
+:root {
+  --vp-nav-bg-color: trasparent;
+}
+.VPNav {
+  backdrop-filter: saturate(1.8) blur(20px);
+}
+
+.VPNavBar {
+  border-bottom: transparent !important;
 }

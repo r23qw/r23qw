@@ -3,5 +3,5 @@
 # About
 
 ```ts
-let nickname = "aaron00101010"
+let nickname = "Jerry"
 ```

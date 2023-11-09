@@ -13,9 +13,7 @@ export default defineConfig({
   description: "A Blog Site Powered By Vitepress",
   srcDir: "./src",
   lang: "zh-CN",
-  rewrites: {
-    "posts/:name/:postName": "posts/:postName",
-  },
+  rewrites: {},
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
