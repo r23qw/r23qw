@@ -1,5 +1,6 @@
 ---
-outline: deep
+title: Api examples
+date: 2023-11-08
 ---
 
 # Runtime API Examples

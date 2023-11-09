@@ -1,15 +1,27 @@
 <!-- .vitepress/theme/Layout.vue -->
 
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme-without-fonts'
 import { nextTick, provide } from 'vue'
+import {
+  startViewTransition,
+} from 'vue-view-transitions'
 
+const router = useRouter()
 const { isDark } = useData()
+
 
 const enableTransitions = () =>
   'startViewTransition' in document &&
   window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+
+if (enableTransitions()) {
+  router.onBeforeRouteChange = async () => {
+    const viewTransition = startViewTransition();
+    await viewTransition.captured
+  };
+}
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   if (!enableTransitions()) {

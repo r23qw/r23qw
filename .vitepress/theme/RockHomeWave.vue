@@ -85,7 +85,8 @@ const chartOption = computed(() => {
         textStyle: {
           fontSize: fontSizeMap[currentBreakpoint.value],
           color: props.fontColor,
-          fontWeight: 300
+          fontWeight: 300,
+          fontFamily: 'SimSun'
         }
       },
       backgroundStyle: {
