@@ -20,6 +20,7 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Posts", link: "/posts" },
+      { text: "About", link: "/about" },
     ],
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },

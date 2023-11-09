@@ -27,11 +27,27 @@ const waveColor = computed(() => isDarkScheme.value
   : ['#263238', '#37474F', '#455A64', '#546E7A'],)
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .content a {
-  --at-apply: text-4 lg:text-6 2xl:text-8;
+  --at-apply: py-2 text-4 lg:text-6;
   color: v-bind(fontColor);
   font-weight: 300;
   font-family: 'SimSun';
+  position: relative;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    transition: width .15s;
+    background-color: currentColor;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 }
 </style>

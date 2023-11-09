@@ -13,6 +13,7 @@
     "fs-extra": "^11.1.1",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
+    "sass": "^1.69.5",
     "unocss": "^0.57.2",
     "vitepress": "1.0.0-rc.25",
     "vue": "^3.3.8"
@@ -23,7 +24,6 @@
     "echarts": "^5.4.3",
     "echarts-liquidfill": "^3.1.0",
     "jinrishici": "^1.0.6",
-    "nprogress": "^0.2.0",
-    "vue-view-transitions": "^1.2.0"
+    "nprogress": "^0.2.0"
   }
 }

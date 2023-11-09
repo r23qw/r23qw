@@ -5,7 +5,6 @@ export default createContentLoader("src/posts/**/*.md", {
   render: true,
   excerpt: true,
   transform(rawData) {
-    console.log(rawData);
     return rawData
       .sort((a, b) => {
         return +new Date(b.frontmatter.date) - +new Date(a.frontmatter.date);

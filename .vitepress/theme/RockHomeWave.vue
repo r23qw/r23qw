@@ -75,7 +75,7 @@ const chartOption = computed(() => {
       data: [0.35, 0.30, 0.25, 0.2],
       color: props.waveColor,
       shape: 'container',
-      animationDuration: 8000,
+      animationDuration: 5000,
       outline: {
         show: false
       },
