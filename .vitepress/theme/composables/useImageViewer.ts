@@ -8,7 +8,9 @@ export function useImageViewer() {
   const router = useRouter();
 
   let create = () => {
-    viewer.value = new Viewer(document.querySelector(".VPDoc")!, {
+    const target = document.querySelector<HTMLElement>(".VPDoc");
+    if (target === null) return;
+    viewer.value = new Viewer(target, {
       transition: false,
       navbar: false,
       toolbar: false,
