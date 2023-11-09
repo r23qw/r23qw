@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [UnoCSS()],
     ssr: {
-      noExternal: ["echarts", "echarts-liquidfill", "jinrishici"],
+      noExternal: ["echarts", "echarts-liquidfill", "jinrishici", "vconsole"],
     },
   },
   title: "Rock'n Roll Coder",
