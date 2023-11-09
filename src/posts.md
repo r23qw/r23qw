@@ -1,3 +1,7 @@
 ---
-layout: rock-posts
+layout: page
+outline: false
 ---
+
+
+<rock-posts/>

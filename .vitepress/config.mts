@@ -3,14 +3,9 @@ import UnoCSS from "unocss/vite";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  vite: {
-    plugins: [UnoCSS()],
-    ssr: {
-      noExternal: ["echarts", "echarts-liquidfill", "jinrishici"],
-    },
-  },
   title: "Rock'n Roll Coder",
   description: "aaron00101010's personal website",
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   srcDir: "./src",
   lang: "zh-CN",
   rewrites: {},
@@ -47,6 +42,12 @@ export default defineConfig({
     footer: {
       message: "CC BY-NC-SA 4.0",
       copyright: "Copyright © 2023-present aaron00101010",
+    },
+  },
+  vite: {
+    plugins: [UnoCSS()],
+    ssr: {
+      noExternal: ["echarts", "echarts-liquidfill", "jinrishici"],
     },
   },
 });

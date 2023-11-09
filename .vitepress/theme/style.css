@@ -200,6 +200,11 @@
 .VPNavBar {
   border-bottom: transparent !important;
 }
+
+.VPNavScreen {
+  height: 100vh !important;
+}
+
 /* footer */
 .VPFooter {
   border-top: transparent !important;
