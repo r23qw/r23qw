@@ -9,7 +9,6 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import * as jinrishici from 'jinrishici'
 import * as echarts from 'echarts/core';
 import 'echarts-liquidfill'
-import { CanvasRenderer } from 'echarts/renderers'
 
 
 const props = defineProps({
@@ -27,7 +26,6 @@ const props = defineProps({
   }
 })
 
-echarts.use([CanvasRenderer])
 
 let sentence = ref('')
 jinrishici.load((result) => {
@@ -103,7 +101,7 @@ let chart = ref<ReturnType<typeof echarts.init> | null>(null)
 
 function initChart() {
   chart.value = echarts.init(container.value!, undefined, {
-    renderer: 'svg'
+    renderer: currentBreakpoint.value === 'sm' ? 'canvas' : 'svg'
   });
   chart.value!.setOption(chartOption.value);
 }
