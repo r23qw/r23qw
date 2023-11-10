@@ -9,7 +9,9 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import * as jinrishici from 'jinrishici'
 import * as echarts from 'echarts/core';
 import 'echarts-liquidfill'
+import { SVGRenderer, CanvasRenderer } from 'echarts/renderers'
 
+echarts.use([SVGRenderer, CanvasRenderer])
 
 const props = defineProps({
   fontColor: {
