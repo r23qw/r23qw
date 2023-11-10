@@ -1,12 +1,25 @@
 import "viewerjs/dist/viewer.css";
 import Viewer from "viewerjs";
-import { onMounted, onUnmounted, ref } from "vue";
-import { useRouter } from "vitepress";
+import { nextTick, onMounted, ref } from "vue";
+import { useEventListener, useDebounceFn } from "@vueuse/core";
+
+function patchHistory() {
+  const methods = ["pushState", "replaceState"];
+
+  methods.forEach((method) => {
+    const originMethod = window.history[method];
+
+    window.history[method] = function (...args) {
+      const event = new Event(method.toLocaleLowerCase());
+      window.dispatchEvent(event);
+      return originMethod.apply(window.history, args);
+    };
+  });
+}
+patchHistory();
 
 export function useImageViewer() {
   let viewer = ref<Viewer | null>(null);
-  const router = useRouter();
-
   let create = () => {
     const target = document.querySelector<HTMLElement>(".VPDoc");
     if (target === null) return;
@@ -16,12 +29,13 @@ export function useImageViewer() {
       toolbar: false,
     });
   };
-  let destroy = () => {
+  let update = useDebounceFn(() => {
     viewer.value?.destroy();
-  };
-
-  router.onBeforeRouteChange = destroy;
-  router.onAfterRouteChanged = create;
+    create();
+  }, 1000);
   onMounted(create);
-  onUnmounted(destroy);
+  useEventListener(
+    ["popstate", "pushstate", "replacestate"] as (keyof WindowEventMap)[],
+    update
+  );
 }
