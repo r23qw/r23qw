@@ -1,14 +1,13 @@
 import "viewerjs/dist/viewer.css";
 import Viewer from "viewerjs";
-import { nextTick, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useEventListener, useDebounceFn } from "@vueuse/core";
 
 function patchHistory() {
+  if (typeof window !== "object") return;
   const methods = ["pushState", "replaceState"];
-
   methods.forEach((method) => {
     const originMethod = window.history[method];
-
     window.history[method] = function (...args) {
       const event = new Event(method.toLocaleLowerCase());
       window.dispatchEvent(event);
