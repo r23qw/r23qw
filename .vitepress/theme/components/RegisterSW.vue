@@ -28,17 +28,4 @@ onBeforeMount(async () => {
 
 <template></template>
 
-<style scoped>
-.pwa-toast {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 16px;
-  padding: 12px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 4px;
-  z-index: 100;
-  text-align: left;
-  background-color: transparent;
-}
-</style>
+<style scoped></style>
