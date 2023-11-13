@@ -63,6 +63,6 @@ onBeforeMount(async () => {
   border-radius: 4px;
   z-index: 100;
   text-align: left;
-  background-color: transparent;
+  background-color: var(--vp-c-bg);
 }
 </style>

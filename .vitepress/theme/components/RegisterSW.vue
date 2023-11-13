@@ -26,18 +26,7 @@ onBeforeMount(async () => {
 })
 </script>
 
-<template>
-  <template v-if="offlineReady">
-    <div class="pwa-toast" role="alertdialog" aria-labelledby="pwa-message">
-      <div id="pwa-message" class="mb-3">
-        应用离线运行
-      </div>
-      <Button @click="close">
-        Close
-      </Button>
-    </div>
-  </template>
-</template>
+<template></template>
 
 <style scoped>
 .pwa-toast {
