@@ -53,6 +53,53 @@ export default withPwa(
         noExternal: ["echarts", "echarts-liquidfill", "jinrishici"],
       },
     },
-    pwa: {},
+    pwa: {
+      outDir: "../.vitepress/dist",
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,webp,jpg,png}"],
+      },
+      manifest: {
+        id: "/",
+        name: "Rock'n Roll Coder",
+        short_name: "Rock'n Roll Coder",
+        description: "aaron00101010's personal website",
+        theme_color: "#ffffff",
+        start_url: "/",
+        orientation: "natural",
+        display: "standalone",
+        display_override: ["window-controls-overlay"],
+        icons: [
+          {
+            src: "pwa-64x64.png",
+            sizes: "64x64",
+            type: "image/png",
+          },
+          {
+            src: "pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "maskable-icon.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
+        ],
+        handle_links: "preferred",
+        launch_handler: {
+          client_mode: ["navigate-existing", "auto"],
+        },
+        edge_side_panel: {
+          preferred_width: 480,
+        },
+      },
+    },
   })
 );

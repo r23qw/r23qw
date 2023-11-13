@@ -10,12 +10,12 @@ const close = async () => {
 }
 
 onBeforeMount(async () => {
+  //@ts-ignore
   const { registerSW } = await import('virtual:pwa-register')
   registerSW({
     immediate: true,
     onOfflineReady,
     onRegistered() {
-
       console.info('Service Worker registered')
     },
     onRegisterError(e) {

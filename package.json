@@ -3,13 +3,15 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal src/public/logo.svg"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@types/dom-view-transitions": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
     "@unocss/transformer-directives": "^0.57.2",
+    "@vite-pwa/assets-generator": "^0.0.10",
     "@vite-pwa/vitepress": "^0.2.3",
     "fs-extra": "^11.1.1",
     "glob": "^10.3.10",

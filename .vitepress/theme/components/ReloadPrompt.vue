@@ -18,6 +18,7 @@ const close = async () => {
 }
 
 onBeforeMount(async () => {
+  //@ts-ignore
   const { registerSW } = await import('virtual:pwa-register')
   updateServiceWorker = registerSW({
     immediate: true,
