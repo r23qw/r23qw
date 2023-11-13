@@ -17,6 +17,7 @@ useImageViewer()
 <template>
   <DefaultTheme.Layout>
     <template #doc-before>
+
       <PostHeader />
     </template>
     <template #doc-footer-before>

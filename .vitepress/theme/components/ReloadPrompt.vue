@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue'
+import Button from './Button.vue';
 
 const offlineReady = ref(false)
 const needRefresh = ref(false)
@@ -38,43 +39,30 @@ onBeforeMount(async () => {
 <template>
   <template v-if="offlineReady || needRefresh">
     <div class="pwa-toast" role="alertdialog" aria-labelledby="pwa-message">
-      <div id="pwa-message" class="mb-3">
-        {{ offlineReady ? 'App ready to work offline' : 'New content available, click the reload button to update.' }}
+      <div id="pwa-message" class="mb-4">
+        {{ offlineReady ? '应用离线运行' : ' 有新内容，点击更新' }}
       </div>
-      <button v-if="needRefresh" type="button" class="pwa-refresh" @click="updateServiceWorker?.()">
-        Reload
-      </button>
-      <button type="button" class="pwa-cancel" @click="close">
-        Close
-      </button>
+      <Button v-if="needRefresh" class="mr-4 brand" @click="updateServiceWorker?.()">
+        更新
+      </Button>
+      <Button class="alt" @click="close">
+        关闭
+      </Button>
     </div>
   </template>
 </template>
 
-<style>
+<style scoped>
 .pwa-toast {
   position: fixed;
   right: 0;
   bottom: 0;
   margin: 16px;
   padding: 12px;
-  border: 1px solid #8885;
+  border: 1px solid var(--vp-c-divider);
   border-radius: 4px;
   z-index: 100;
   text-align: left;
-  box-shadow: 3px 4px 5px 0 #8885;
-  background-color: white;
-}
-
-.pwa-toast #pwa-message {
-  margin-bottom: 8px;
-}
-
-.pwa-toast button {
-  border: 1px solid #8885;
-  outline: none;
-  margin-right: 5px;
-  border-radius: 2px;
-  padding: 3px 10px;
+  background-color: transparent;
 }
 </style>
