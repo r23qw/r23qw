@@ -5,6 +5,8 @@ import PostFooter from './components/PostFooter.vue'
 import { useProgress } from './composables/useProgress'
 import { useColorSchemeTransition } from './composables/useColorSchemeTransition'
 import { useImageViewer } from './composables/useImageViewer'
+import RegisterSW from './components/RegisterSW.vue'
+import ReloadPrompt from './components/ReloadPrompt.vue'
 
 useProgress()
 useColorSchemeTransition()
@@ -19,6 +21,10 @@ useImageViewer()
     </template>
     <template #doc-footer-before>
       <PostFooter />
+    </template>
+    <template #layout-bottom>
+      <RegisterSW />
+      <ReloadPrompt />
     </template>
   </DefaultTheme.Layout>
 </template>

@@ -10,6 +10,7 @@
     "@types/dom-view-transitions": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
     "@unocss/transformer-directives": "^0.57.2",
+    "@vite-pwa/vitepress": "^0.2.3",
     "fs-extra": "^11.1.1",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
@@ -25,6 +26,7 @@
     "echarts-liquidfill": "^3.1.0",
     "jinrishici": "^1.0.6",
     "nprogress": "^0.2.0",
-    "viewerjs": "^1.11.6"
+    "viewerjs": "^1.11.6",
+    "workbox-window": "^7.0.0"
   }
 }
