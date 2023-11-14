@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 import UnoCSS from "unocss/vite";
 import { withPwa } from "@vite-pwa/vitepress";
+import { SearchPlugin } from "vitepress-plugin-search";
 
 // https://vitepress.dev/reference/site-config
 export default withPwa(
@@ -9,7 +10,7 @@ export default withPwa(
     description: "aaron00101010's personal website",
     head: [["link", { rel: "icon", href: "/favicon.ico" }]],
     srcDir: "./src",
-    lang: "zh-CN",
+    lang: "zh-cn",
     rewrites: {},
     themeConfig: {
       logo: "/logo.svg",
@@ -48,7 +49,12 @@ export default withPwa(
       },
     },
     vite: {
-      plugins: [UnoCSS()],
+      plugins: [
+        UnoCSS(),
+        SearchPlugin({
+          tokenize: "full",
+        }),
+      ],
       ssr: {
         noExternal: ["echarts", "echarts-liquidfill", "jinrishici"],
       },
